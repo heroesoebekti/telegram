@@ -34,7 +34,7 @@ class CirculationLib{
     $_q = DB::getInstance('mysqli')->query('SELECT b.title, i.item_code, l.loan_date, l.due_date FROM loan l 
             LEFT JOIN item i ON i.item_code=l.item_code 
             LEFT JOIN biblio b ON i.biblio_id=b.biblio_id 
-            WHERE l.is_return = 0 AND l.item_code IS NOT NULL AND l.member_id = \''.$member_id.'\''); 
+            WHERE l.is_return = 0 AND i.item_code IS NOT NULL AND l.member_id = \''.$member_id.'\''); 
         if($_q->num_rows){
             while ($data = $_q->fetch_array()) {
                 $data['is_overdue'] = $data['due_date']<=date("Y-m-d")?true:false;

@@ -193,6 +193,9 @@ class BotInterface{
     protected function extend()
     {
         $this->keyboard = Keyboard::unsetKeyboard();
+        if(!$this->is_member){
+            return __('Only for registered account');           
+        }
         $str = '';
         $_query = "SELECT * FROM telegram_chat_log WHERE callback = '#extend' AND chat_id=".$this->chat->id;
         $_q = DB::GetInstance('mysqli')->query($_query);

@@ -70,7 +70,7 @@ class Keyboard{
                     [
                         [
                             "text" => "🌏 OPAC",
-                            "url" => 'https://slims.web.id'
+                            "url" => $url
                         ],
                         [
                             "text" => "🔐 ".__("Activate"),

@@ -51,9 +51,9 @@ class BotTelegram {
         $this->token        = $config['token'];
         $this->parse_mode   = 'html'; // markdown or html
         $this->force_reply  = true;
-        $this->send_receipt = $config['circ_receipt'];
-        $this->header       = ''.PHP_EOL;
-        $this->footer       = PHP_EOL.'';
+        $this->send_receipt = $config['circ_receipt']??0;
+        $this->header       = '';
+        $this->footer       = '';
     }
 
     /**

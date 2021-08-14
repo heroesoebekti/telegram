@@ -162,15 +162,29 @@ class BotInterface{
      */
     public function detailMember()
     {
+        self::clearState();  
         $this->keyboard = Keyboard::keyboardLayout($this->is_member);
     	$member = api::member_load(DB::getInstance('mysqli'), $this->member['member_id']??null);
     	$str = __('UNREGISTRED member');
     	if($member){
     		$_data_member = $member[0];
     	    $str  = __('Your Account :').PHP_EOL;
-    	    $str .= sprintf(__('Member ID : %s'),strtoupper($_data_member['member_id'])).PHP_EOL;
-    	    $str .= sprintf(__('Member Name : <b>%s</b>'),strtoupper($_data_member['member_name'])).PHP_EOL;
-            //$str .= json_encode($_data_member);
+            $str .= '======================='.PHP_EOL;
+    	    $str .= __('Member ID').' : '.$_data_member['member_id'].PHP_EOL;
+    	    $str .= __('Member Name').' : <b>'.strtoupper($_data_member['member_name']).'</b>'.PHP_EOL;
+            $str .= __('Gender').' : '.($_data_member['member_name']==0?__('Male'):__('Female')).PHP_EOL;
+            $str .= __('Birth Date').' : '.$_data_member['birth_date'].PHP_EOL;
+            $str .= __('Member Type Name').' : '.$_data_member['member_type_name'].PHP_EOL;
+            $str .= __('Member Address').' : '.$_data_member['member_address'].PHP_EOL;
+            $str .= __('Member Mail Address').' : '.$_data_member['member_mail_address'].PHP_EOL;
+            $str .= __('Member Email').' : '.$_data_member['member_email'].PHP_EOL;
+            $str .= __('Postal Code').' : '.$_data_member['postal_code'].PHP_EOL;
+            $str .= __('Member Phone').' : '.$_data_member['member_phone'].PHP_EOL;
+            $str .= __('Member Since Date').' : '.$_data_member['member_since_date'].PHP_EOL;
+            $str .= __('Register Date').' : '.$_data_member['register_date'].PHP_EOL;
+            $str .= __('Expire Date').' : '.$_data_member['expire_date'].PHP_EOL;
+            $str .= __('Is Pending').' : '.($_data_member['is_pending']==0?__('No'):__('Yes')).PHP_EOL;
+            $str .= __('Member Notes').' : '.$_data_member['member_notes'].PHP_EOL;
         }
     	return $str;
     }
@@ -210,7 +224,7 @@ class BotInterface{
                     return __('Collection status is overdue, Transaction cannot be continued');
 
                     default:
-                        if(array_key_exists('item_code',$_data)){
+                        if(array_key_exists('item_code',$_temp_data)){
                             if(strtoupper($this->response['text']) == 'Y'){
                                 $extend = CirculationLib::extend($this->member['member_id'],$_temp_data['item_code']);
                                 switch ($extend) {
@@ -288,7 +302,7 @@ class BotInterface{
         						$status = DB::getInstance('mysqli')->query("INSERT IGNORE INTO `member_custom` (`member_id`,`telegram_id`, `telegram_username`) VALUES ('".$_member['member_id']."','".$this->chat->id."','".$username."');");    
         					}
                             $this->keyboard = Keyboard::keyboardLayout(true);
-    						$str .= __('Account activation process is successful');
+    						return __('Account activation process is successful');
     					}
     				}
     				//delete state command
@@ -310,7 +324,8 @@ class BotInterface{
      	$this->keyboard = Keyboard::keyboardLayout($this->is_member);
     	if(!$this->is_member){
     		return __('Only for registered account');   		
-    	}   	
+    	}  
+        self::clearState();  	
         $loan_data = CirculationLib::getLoan($this->member['member_id']);
         if($loan_data){
             $str_html = __('Current Loan').PHP_EOL;
@@ -336,6 +351,7 @@ class BotInterface{
     	if(!$this->is_member){
     		return __('Only for registered account');   		
     	}
+        self::clearState(); 
         $loan_data = CirculationLib::getFines($this->member['member_id']);
         if($loan_data){
             $str_html = __('Current Fines').PHP_EOL;
@@ -355,8 +371,10 @@ class BotInterface{
      */
     protected function help()
     {
+        self::clearState(); 
     	$this->keyboard = Keyboard::keyboardLayout($this->is_member);
     	$str  = __('You use the <b>HELP</b> menu').PHP_EOL;
+        $str .= '======================='.PHP_EOL;
     	$str .= '▶️ '.__('<b>OPAC</b> is the link to the main page of this System').PHP_EOL;
     	$str .= '▶️ '.__('<b>Help</b> to provide a brief overview of the menus available in this service').PHP_EOL;
     	if(!$this->is_member){

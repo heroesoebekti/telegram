@@ -224,7 +224,7 @@ class BotInterface{
                     return __('Collection status is overdue, Transaction cannot be continued');
 
                     default:
-                        if(array_key_exists('item_code',$_data)){
+                        if(is_array($_data) && array_key_exists('item_code',$_data)){
                             if(strtoupper($this->response['text']) == 'Y'){
                                 $extend = CirculationLib::extend($this->member['member_id'],$_temp_data['item_code']);
                                 switch ($extend) {

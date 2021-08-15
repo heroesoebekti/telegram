@@ -27,7 +27,6 @@ use SLiMS\DB;
 use Lib\Keyboard;
 use Lib\CirculationLib;
 
-
 require __DIR__.DS.'Locale.php';
 
 class BotInterface{
@@ -194,6 +193,7 @@ class BotInterface{
     {
         $this->keyboard = Keyboard::unsetKeyboard();
         if(!$this->is_member){
+            $this->keyboard = Keyboard::keyboardLayout($this->is_member);
             return __('Only for registered account');           
         }
         $str = '';

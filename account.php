@@ -50,7 +50,7 @@ if(isset($_POST['sendData'])){
     $msg = new BotTelegram();
     $status = $msg->direct_reply($_POST['memberID'], $_POST['msg']);
     if($status['ok']){
-        utility::jsalert('Pesan berhasil terkirim!');
+        utility::jsalert(__('Message Sent Successfully!'));
     }
 }
 

@@ -34,8 +34,7 @@ msgstr "Semua Data Berhasil Dihapus"
 
 #: account.php:103 answer.php:113
 msgid ""
-"Some or All Data NOT deleted successfully!\\nPlease contact system "
-"administrator"
+"Some or All Data NOT deleted successfully!\\nPlease contact system administrator"
 msgstr "Sebagian atau semua data GAGAL dihapus!\\nHubungi administrator sistem"
 
 #: account.php:115 register.plugin.php:23
@@ -69,8 +68,7 @@ msgstr "Tulis Pesan"
 #: account.php:168 answer.php:214
 msgid "Found <strong>{result->num_rows}</strong> from your keywords"
 msgstr ""
-"Ditemukan <strong>{result->num_rows}</strong> dari kata kunci yang Anda "
-"masukkan"
+"Ditemukan <strong>{result->num_rows}</strong> dari kata kunci yang Anda masukkan"
 
 #: answer.php:51
 #, fuzzy
@@ -228,8 +226,7 @@ msgid "Item not registered in database"
 msgstr "Eksemplar ini tidak terdaftar dalam pangkalan data"
 
 #: lib/BotInterface.php:219
-msgid ""
-"Membership status is suspended or expired, Transaction cannot be continued"
+msgid "Membership status is suspended or expired, Transaction cannot be continued"
 msgstr ""
 "Status keanggotaan ditangguhkan atau kedaluwarsa, Transaksi tidak dapat "
 "dilanjutkan"
@@ -244,8 +241,7 @@ msgstr "Status koleksi jatuh tempo, Transaksi tidak dapat dilanjutkan"
 
 #: lib/BotInterface.php:236
 msgid "Maximum Reborrow Limit, Transaction cannot be continued"
-msgstr ""
-"Perpanjangan peminjaman sudah maksimal, Transaksi tidak dapat dilanjutkan"
+msgstr "Perpanjangan peminjaman sudah maksimal, Transaksi tidak dapat dilanjutkan"
 
 #: lib/BotInterface.php:240
 msgid "Transaction Success, Check on Loans Menu"
@@ -319,8 +315,7 @@ msgstr "Catatan"
 
 #: lib/BotInterface.php:342
 msgid "Collection in overdue status. you are not self extend"
-msgstr ""
-"Koleksi dalam status terlambat. Anda tidak memperpanjang secara mandiri"
+msgstr "Koleksi dalam status terlambat. Anda tidak memperpanjang secara mandiri"
 
 #: lib/BotInterface.php:346 lib/BotInterface.php:368
 msgid "No Loan Transaction"
@@ -352,21 +347,19 @@ msgstr "<b>OPAC</b> adalah tautan ke halaman utama sistem ini"
 
 #: lib/BotInterface.php:382
 msgid ""
-"<b>Help</b> to provide a brief overview of the menus available in this "
-"service"
+"<b>Help</b> to provide a brief overview of the menus available in this service"
 msgstr ""
-"<b>Bantuan</b> untuk memberikan gambaran singkat tentang menu-menu yang "
-"tersedia di layanan ini"
+"<b>Bantuan</b> untuk memberikan gambaran singkat tentang menu-menu yang tersedia "
+"di layanan ini"
 
 #: lib/BotInterface.php:384
 msgid ""
-"<b>Activation</b> is used to link your registered account in library "
-"membership. This registration process will record your Telegram account into "
-"our system"
+"<b>Activation</b> is used to link your registered account in library membership. "
+"This registration process will record your Telegram account into our system"
 msgstr ""
-"<b>Aktivasi</b> digunakan untuk menautkan akun terdaftar Anda dalam "
-"keanggotaan perpustakaan. Proses pendaftaran ini akan merekam akun Telegram "
-"Anda ke dalam sistem kami"
+"<b>Aktivasi</b> digunakan untuk menautkan akun terdaftar Anda dalam keanggotaan "
+"perpustakaan. Proses pendaftaran ini akan merekam akun Telegram Anda ke dalam "
+"sistem kami"
 
 #: lib/BotInterface.php:387
 msgid "<b>Loan</b> to display a list of your current loans"
@@ -561,22 +554,22 @@ msgstr "Bot Resmi!"
 
 #: settings.php:188 settings.php:191
 msgid "Bad Request: bad webhook: HTTPS url must be provided for webhook!"
-msgstr ""
-"Permintaan Buruk: webhook buruk: URL HTTPS harus disediakan untuk webhook!"
+msgstr "Permintaan Buruk: webhook buruk: URL HTTPS harus disediakan untuk webhook!"
 
-#, php-format
-#~ msgid "Member ID : %s"
-#~ msgstr "Nomor Anggota : %s"
+msgid "DELETE"
+msgstr "HAPUS"
 
-#, php-format
-#~ msgid "Member Name : <b>%s</b>"
-#~ msgstr "Nama Anggota : <b>%s</b>"
+msgid "EDIT"
+msgstr "SUNTING"
 
-#~ msgid "member ID"
-#~ msgstr "Nomor Anggota"
+msgid "Delete Selected Data"
+msgstr "Hapus Data Terpilih"
 
-#~ msgid "question"
-#~ msgstr "Pertanyaan "
+msgid "Check All"
+msgstr "Tandai Semua"
 
-#~ msgid "Are you sure to extend "
-#~ msgstr "Anda yakin, akan memperpanjang peminjaman untuk "
+msgid "Uncheck All"
+msgstr "Hilangkan Semua Tanda"
+
+msgid "Message Sent Successfully!"
+msgstr "Pesan Berhasil Terkirim!"

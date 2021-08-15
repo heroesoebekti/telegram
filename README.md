@@ -1,3 +1,10 @@
+### ****PETUNJUK****  
+  
+### Prasyarat :  
+1. SLiMS harus online dan mendukung protokol https atau  
+localhost dengan tunneling _ngrok_ (https://ngrok.com/docs)  
+2. Membuat akun bot telegram dengan mendaftar di https://t.me/botfather, kemudian catat untuk token dan usernamenya  
+
 ### Instalasi :
 1. Salin folder telegram ke ke folder _**plugins**_
 2. Aktifkan plugins telegram melalui menu _**system - plugins**_

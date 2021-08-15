@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bot Telegram\n"
-"POT-Creation-Date: 2021-08-14 18:41+0700\n"
+"POT-Creation-Date: 2021-08-15 07:13+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,7 +38,7 @@ msgid ""
 "administrator"
 msgstr ""
 
-#: account.php:115 register.plugin.php:22
+#: account.php:115 register.plugin.php:23
 msgid "Telegram Account"
 msgstr ""
 
@@ -46,11 +46,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: account.php:137
+#: account.php:137 lib/BotInterface.php:173 register.plugin.php:37
 msgid "Member ID"
 msgstr ""
 
-#: account.php:138 register.plugin.php:35
+#: account.php:138 lib/BotInterface.php:174 register.plugin.php:36
 msgid "Member Name"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "Found <strong>{result->num_rows}</strong> from your keywords"
 msgstr ""
 
 #: answer.php:51
-msgid "question ID or Response can't be empty"
+msgid "Question or Response can't be empty"
 msgstr ""
 
 #: answer.php:69 settings.php:32
@@ -95,11 +95,11 @@ msgid "Telegram Auto Response"
 msgstr ""
 
 #: answer.php:130
-msgid "question List"
+msgid "Question List"
 msgstr ""
 
 #: answer.php:131
-msgid "Add New question"
+msgid "Add New Question"
 msgstr ""
 
 #: answer.php:155 settings.php:97
@@ -111,7 +111,7 @@ msgid "Update"
 msgstr ""
 
 #: answer.php:175 answer.php:194
-msgid "question"
+msgid "Question"
 msgstr ""
 
 #: answer.php:177 answer.php:195
@@ -135,175 +135,233 @@ msgstr ""
 msgid "I don't understand"
 msgstr ""
 
-#: lib/BotInterface.php:167
+#: lib/BotInterface.php:168
 msgid "UNREGISTRED member"
 msgstr ""
 
-#: lib/BotInterface.php:170
+#: lib/BotInterface.php:171
 msgid "Your Account :"
 msgstr ""
 
-#: lib/BotInterface.php:171
-#, php-format
-msgid "Member ID : %s"
+#: lib/BotInterface.php:175
+msgid "Gender"
 msgstr ""
 
-#: lib/BotInterface.php:172
-#, php-format
-msgid "Member Name : <b>%s</b>"
+#: lib/BotInterface.php:175
+msgid "Male"
 msgstr ""
 
-#: lib/BotInterface.php:188
+#: lib/BotInterface.php:175
+msgid "Female"
+msgstr ""
+
+#: lib/BotInterface.php:176
+msgid "Birth Date"
+msgstr ""
+
+#: lib/BotInterface.php:177
+msgid "Member Type Name"
+msgstr ""
+
+#: lib/BotInterface.php:178
+msgid "Member Address"
+msgstr ""
+
+#: lib/BotInterface.php:179
+msgid "Member Mail Address"
+msgstr ""
+
+#: lib/BotInterface.php:180
+msgid "Member Email"
+msgstr ""
+
+#: lib/BotInterface.php:181
+msgid "Postal Code"
+msgstr ""
+
+#: lib/BotInterface.php:182
+msgid "Member Phone"
+msgstr ""
+
+#: lib/BotInterface.php:183
+msgid "Member Since Date"
+msgstr ""
+
+#: lib/BotInterface.php:184
+msgid "Register Date"
+msgstr ""
+
+#: lib/BotInterface.php:185
+msgid "Expire Date"
+msgstr ""
+
+#: lib/BotInterface.php:186
+msgid "Is Pending"
+msgstr ""
+
+#: lib/BotInterface.php:186
+msgid "No"
+msgstr ""
+
+#: lib/BotInterface.php:186
+msgid "Yes"
+msgstr ""
+
+#: lib/BotInterface.php:187
+msgid "Member Notes"
+msgstr ""
+
+#: lib/BotInterface.php:197 lib/BotInterface.php:329 lib/BotInterface.php:355
+msgid "Only for registered account"
+msgstr ""
+
+#: lib/BotInterface.php:205
 msgid "Insert Item Code"
 msgstr ""
 
-#: lib/BotInterface.php:196
+#: lib/BotInterface.php:213
 msgid "Item not registered in database"
 msgstr ""
 
-#: lib/BotInterface.php:202
+#: lib/BotInterface.php:219
 msgid ""
 "Membership status is suspended or expired, Transaction cannot be continued"
 msgstr ""
 
-#: lib/BotInterface.php:206
+#: lib/BotInterface.php:223
 msgid "Collection is currently in reserve, Transaction cannot be continued"
 msgstr ""
 
-#: lib/BotInterface.php:210
+#: lib/BotInterface.php:227
 msgid "Collection status is overdue, Transaction cannot be continued"
 msgstr ""
 
-#: lib/BotInterface.php:219
+#: lib/BotInterface.php:236
 msgid "Maximum Reborrow Limit, Transaction cannot be continued"
 msgstr ""
 
-#: lib/BotInterface.php:223
+#: lib/BotInterface.php:240
 msgid "Transaction Success, Check on Loans Menu"
 msgstr ""
 
-#: lib/BotInterface.php:227
+#: lib/BotInterface.php:244
 msgid "Transaction Aborted"
 msgstr ""
 
-#: lib/BotInterface.php:232
+#: lib/BotInterface.php:249
 #, php-format
 msgid ""
 "Are you sure to extend <b> %s </b>? \n"
 "Press <code>Y</code> if agree or any key to abort!"
 msgstr ""
 
-#: lib/BotInterface.php:246
+#: lib/BotInterface.php:263
 msgid "Account already registered"
 msgstr ""
 
-#: lib/BotInterface.php:254
+#: lib/BotInterface.php:271
 msgid "Insert your username"
 msgstr ""
 
-#: lib/BotInterface.php:267 lib/BotInterface.php:274 lib/BotInterface.php:284
+#: lib/BotInterface.php:284 lib/BotInterface.php:291 lib/BotInterface.php:301
 msgid ""
 "FAILED, Check your username and password or maybe already registered with "
 "another telegram account"
 msgstr ""
 
-#: lib/BotInterface.php:291
+#: lib/BotInterface.php:308
 msgid "Account activation process is successful"
 msgstr ""
 
-#: lib/BotInterface.php:296
+#: lib/BotInterface.php:313
 msgid "Status : "
 msgstr ""
 
-#: lib/BotInterface.php:303
+#: lib/BotInterface.php:320
 msgid ""
 "Insert Your Password ! if you dont have one, please contact the library staff"
 msgstr ""
 
-#: lib/BotInterface.php:312 lib/BotInterface.php:337
-msgid "Only for registered account"
-msgstr ""
-
-#: lib/BotInterface.php:316
+#: lib/BotInterface.php:334
 msgid "Current Loan"
 msgstr ""
 
-#: lib/BotInterface.php:320 register.plugin.php:44 register.plugin.php:57
-#: register.plugin.php:68
+#: lib/BotInterface.php:338 register.plugin.php:45 register.plugin.php:58
+#: register.plugin.php:69
 msgid "Item Code"
 msgstr ""
 
-#: lib/BotInterface.php:321 register.plugin.php:45
+#: lib/BotInterface.php:339 register.plugin.php:46
 msgid "Loan Date"
 msgstr ""
 
-#: lib/BotInterface.php:322 register.plugin.php:46 register.plugin.php:58
-#: register.plugin.php:69
+#: lib/BotInterface.php:340 register.plugin.php:47 register.plugin.php:59
+#: register.plugin.php:70
 msgid "Return Date"
 msgstr ""
 
-#: lib/BotInterface.php:324
+#: lib/BotInterface.php:342
 msgid "Note"
 msgstr ""
 
-#: lib/BotInterface.php:324
+#: lib/BotInterface.php:342
 msgid "Collection in overdue status. you are not self extend"
 msgstr ""
 
-#: lib/BotInterface.php:328 lib/BotInterface.php:349
+#: lib/BotInterface.php:346 lib/BotInterface.php:368
 msgid "No Loan Transaction"
 msgstr ""
 
-#: lib/BotInterface.php:341
+#: lib/BotInterface.php:360
 msgid "Current Fines"
 msgstr ""
 
-#: lib/BotInterface.php:344
+#: lib/BotInterface.php:363
 msgid "Total"
 msgstr ""
 
-#: lib/BotInterface.php:345
+#: lib/BotInterface.php:364
 msgid "Credit"
 msgstr ""
 
-#: lib/BotInterface.php:346
+#: lib/BotInterface.php:365
 msgid "Debet"
 msgstr ""
 
-#: lib/BotInterface.php:359
+#: lib/BotInterface.php:379
 msgid "You use the <b>HELP</b> menu"
 msgstr ""
 
-#: lib/BotInterface.php:360
+#: lib/BotInterface.php:381
 msgid "<b>OPAC</b> is the link to the main page of this System"
 msgstr ""
 
-#: lib/BotInterface.php:361
+#: lib/BotInterface.php:382
 msgid ""
 "<b>Help</b> to provide a brief overview of the menus available in this "
 "service"
 msgstr ""
 
-#: lib/BotInterface.php:363
+#: lib/BotInterface.php:384
 msgid ""
 "<b>Activation</b> is used to link your registered account in library "
 "membership. This registration process will record your Telegram account into "
 "our system"
 msgstr ""
 
-#: lib/BotInterface.php:366
+#: lib/BotInterface.php:387
 msgid "<b>Loan</b> to display a list of your current loans"
 msgstr ""
 
-#: lib/BotInterface.php:367
+#: lib/BotInterface.php:388
 msgid "<b>Overdue</b> to display a list of your current overdues"
 msgstr ""
 
-#: lib/BotInterface.php:368
+#: lib/BotInterface.php:389
 msgid "<b>Fines</b> to display a list of your current fines"
 msgstr ""
 
-#: lib/BotInterface.php:369
+#: lib/BotInterface.php:390
 msgid "<b>Account</b> to display a detail of your account"
 msgstr ""
 
@@ -319,7 +377,7 @@ msgstr ""
 msgid "Loans"
 msgstr ""
 
-#: lib/Keyboard.php:56 register.plugin.php:53
+#: lib/Keyboard.php:56 register.plugin.php:54
 msgid "Extend"
 msgstr ""
 
@@ -359,35 +417,36 @@ msgstr ""
 msgid "Saturday"
 msgstr ""
 
-#: register.plugin.php:24
+#: register.plugin.php:25
 msgid "Telegram Bot Settings"
 msgstr ""
 
-#: register.plugin.php:26
+#: register.plugin.php:27
 msgid "Bot Auto Response"
 msgstr ""
 
-#: register.plugin.php:33
+#: register.plugin.php:34
 msgid "Print Circulation Receipt"
 msgstr ""
 
-#: register.plugin.php:36
-msgid "member ID"
-msgstr ""
-
-#: register.plugin.php:37
+#: register.plugin.php:38
 msgid "Transaction finished"
 msgstr ""
 
-#: register.plugin.php:40
+#: register.plugin.php:41
 msgid "Loan"
 msgstr ""
 
-#: register.plugin.php:64
+#: register.plugin.php:65
 msgid "Return"
 msgstr ""
 
-#: register.plugin.php:70
+#: register.plugin.php:73
+#, php-format
+msgid "Overdue %d days with fines %s. %s"
+msgstr ""
+
+#: register.plugin.php:76
 msgid "Overdue"
 msgstr ""
 

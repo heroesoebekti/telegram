@@ -33,6 +33,9 @@ require SIMBIO.'simbio_GUI/table/simbio_table.inc.php';
 require SIMBIO.'simbio_DB/simbio_dbop.inc.php';
 include __DIR__.DS.'lib/Locale.php';
 
+if ($_SESSION['uid'] != 1) {
+  die('<div class="errorBox">'.__('You are not authorized to view this section').'</div>');
+}
 
 $php_self = $_SERVER['PHP_SELF'].'?'.http_build_query($_GET);
 
@@ -121,7 +124,7 @@ if(isset($_POST['updateData'])){
       </div>
       <div class="modal-body p-4">
         <?php
-        include LIB.'Parsedown/Parsedown.php';
+        include LIB.'parsedown/Parsedown.php';
         $contents = file_get_contents(__DIR__ .'/README.md');
         $Parsedown = new Parsedown();
         echo $Parsedown->text($contents);
@@ -134,61 +137,59 @@ if(isset($_POST['updateData'])){
   </div>
 </div>
 <?php
+    $query = DB::getInstance('mysqli')->query('SELECT * FROM telegram_settings');
+    while ($config = $query->fetch_assoc()) $telegram = $config;
 
-  $query = DB::getInstance('mysqli')->query('SELECT * FROM telegram_settings');
-  while ($config = $query->fetch_assoc()) $telegram = $config;
+    // create new instance
+    $form = new simbio_form_table_AJAX('mainForm', $php_self, 'post');
+    $form->submit_button_attr = 'name="updateData" value="'.__('Save').'" class="btn btn-default"';
 
-// create new instance
-$form = new simbio_form_table_AJAX('mainForm', $php_self, 'post');
-$form->submit_button_attr = 'name="updateData" value="'.__('Save').'" class="btn btn-default"';
+    // form table attributes
+    $form->table_attr = 'id="dataList" class="s-table table"';
+    $form->table_header_attr = 'class="alterCell font-weight-bold"';
+    $form->table_content_attr = 'class="alterCell2"';
 
-// form table attributes
-$form->table_attr = 'id="dataList" class="s-table table"';
-$form->table_header_attr = 'class="alterCell font-weight-bold"';
-$form->table_content_attr = 'class="alterCell2"';
+    $form->addTextField('text', 'bot_token', __('Token'), $telegram['token'], 'class="form-control col-6"');
 
-$form->addTextField('text', 'bot_token', __('Token'), $telegram['token'], 'class="form-control col-6"');
+    $form->addHidden('old_settings',  $telegram['token']);
 
-$form->addHidden('old_settings',  $telegram['token']);
+    $options_registration = null;
+    $options_registration[] = array('0', __('Disable'));
+    $options_registration[] = array('1', __('Enable'));
+    $form->addSelectList('registration', __('Self Activation'), $options_registration, $telegram['self_regis']??'0','class="form-control col-3"');
 
-$options_registration = null;
-$options_registration[] = array('0', __('Disable'));
-$options_registration[] = array('1', __('Enable'));
-$form->addSelectList('registration', __('Self Activation'), $options_registration, $telegram['self_regis']??'0','class="form-control col-3"');
+    $options_extended = null;
+    $options_extended[] = array('0', __('Disable'));
+    $options_extended[] = array('1', __('Enable'));
+    $form->addSelectList('extended', __('Self Loan Extension'), $options_extended, $telegram['self_extend']??'0',' class="form-control col-3"');
 
-$options_extended = null;
-$options_extended[] = array('0', __('Disable'));
-$options_extended[] = array('1', __('Enable'));
-$form->addSelectList('extended', __('Self Loan Extension'), $options_extended, $telegram['self_extend']??'0',' class="form-control col-3"');
+    $options_reservation = null;
+    $options_reservation[] = array('0', __('Disable'));
+    $options_reservation[] = array('1', __('Enable'));
+    $form->addSelectList('reservation', __('Self Booking'), $options_reservation, $sysconf['reserve_on_loan_only']??'0',' disabled class="form-control col-3"');
 
-$options_reservation = null;
-$options_reservation[] = array('0', __('Disable'));
-$options_reservation[] = array('1', __('Enable'));
-$form->addSelectList('reservation', __('Self Booking'), $options_reservation, $sysconf['reserve_on_loan_only']??'0',' disabled class="form-control col-3"');
+    $options_receipt = null;
+    $options_receipt[] = array('0', __('Disable'));
+    $options_receipt[] = array('1', __('Enable'));
+    $form->addSelectList('receipt', __('Circulation Receipt'), $options_receipt, $telegram['circ_receipt']??'0','class="form-control col-3"');
 
-$options_receipt = null;
-$options_receipt[] = array('0', __('Disable'));
-$options_receipt[] = array('1', __('Enable'));
-$form->addSelectList('receipt', __('Circulation Receipt'), $options_receipt, $telegram['circ_receipt']??'0','class="form-control col-3"');
+    $options_visitor = null;
+    $options_visitor[] = array('0', __('Disable'));
+    $options_visitor[] = array('1', __('Enable'));
+    $form->addSelectList('visit', __('Visiting Notification'), $options_visitor, $sysconf['reserve_on_loan_only']??'0',' disabled class="form-control col-3"');
 
-$options_visitor = null;
-$options_visitor[] = array('0', __('Disable'));
-$options_visitor[] = array('1', __('Enable'));
-$form->addSelectList('visit', __('Visiting Notification'), $options_visitor, $sysconf['reserve_on_loan_only']??'0',' disabled class="form-control col-3"');
+    $options_overdue_warning = null;
+    $options_overdue_warning[] = array('0', __('Disable'));
+    $options_overdue_warning[] = array('1', __('Enable'));
+    $form->addSelectList('visit1', __('Overdue Warning'), $options_overdue_warning, $sysconf['overdue_warning']??'0',' disabled class="form-control col-3"');
 
-$options_overdue_warning = null;
-$options_overdue_warning[] = array('0', __('Disable'));
-$options_overdue_warning[] = array('1', __('Enable'));
-$form->addSelectList('visit1', __('Overdue Warning'), $options_overdue_warning, $sysconf['overdue_warning']??'0',' disabled class="form-control col-3"');
+    $options_overdue_notice = null;
+    $options_overdue_notice[] = array('0', __('Disable'));
+    $options_overdue_notice[] = array('1', __('Enable'));
+    $form->addSelectList('visit2', __('Overdue Notice'), $options_overdue_notice, $sysconf['overdue_notice']??'0',' disabled class="form-control col-3"');
 
-$options_overdue_notice = null;
-$options_overdue_notice[] = array('0', __('Disable'));
-$options_overdue_notice[] = array('1', __('Enable'));
-$form->addSelectList('visit2', __('Overdue Notice'), $options_overdue_notice, $sysconf['overdue_notice']??'0',' disabled class="form-control col-3"');
-
-// print out the object
-echo $form->printOut();
-
+    // print out the object
+    echo $form->printOut();
 ?>
 <script>
 $(function() {

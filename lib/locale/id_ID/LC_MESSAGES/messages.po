@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bot Telegram\n"
-"POT-Creation-Date: 2021-08-15 07:08+0700\n"
+"POT-Creation-Date: 2021-08-16 12:20+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,6 +20,10 @@ msgstr ""
 msgid "You don't have enough privileges to access this area!"
 msgstr "Anda tidak diperkenankan akses halaman ini!"
 
+#: account.php:53
+msgid "Message Sent Successfully!"
+msgstr "Pesan Berhasil Terkirim!"
+
 #: account.php:61
 msgid "Send"
 msgstr "Kirim"
@@ -34,7 +38,8 @@ msgstr "Semua Data Berhasil Dihapus"
 
 #: account.php:103 answer.php:113
 msgid ""
-"Some or All Data NOT deleted successfully!\\nPlease contact system administrator"
+"Some or All Data NOT deleted successfully!\\nPlease contact system "
+"administrator"
 msgstr "Sebagian atau semua data GAGAL dihapus!\\nHubungi administrator sistem"
 
 #: account.php:115 register.plugin.php:23
@@ -45,11 +50,11 @@ msgstr "Akun Telegram"
 msgid "Search"
 msgstr "Cari"
 
-#: account.php:137 lib/BotInterface.php:173 register.plugin.php:37
+#: account.php:137 lib/BotInterface.php:172 register.plugin.php:37
 msgid "Member ID"
 msgstr "Nomor Anggota"
 
-#: account.php:138 lib/BotInterface.php:174 register.plugin.php:36
+#: account.php:138 lib/BotInterface.php:173 register.plugin.php:36
 msgid "Member Name"
 msgstr "Nama Anggota"
 
@@ -68,7 +73,8 @@ msgstr "Tulis Pesan"
 #: account.php:168 answer.php:214
 msgid "Found <strong>{result->num_rows}</strong> from your keywords"
 msgstr ""
-"Ditemukan <strong>{result->num_rows}</strong> dari kata kunci yang Anda masukkan"
+"Ditemukan <strong>{result->num_rows}</strong> dari kata kunci yang Anda "
+"masukkan"
 
 #: answer.php:51
 #, fuzzy
@@ -76,7 +82,7 @@ msgstr ""
 msgid "Question or Response can't be empty"
 msgstr "Pertanyaan atau Respon tidak boleh kosong"
 
-#: answer.php:69 settings.php:32
+#: answer.php:69 settings.php:71
 msgid "Data Successfully Updated"
 msgstr "Data Berhasil Diperbaharui"
 
@@ -104,7 +110,7 @@ msgstr "Daftar Pertanyaan"
 msgid "Add New Question"
 msgstr "Tambahkan Pertanyaan Baru"
 
-#: answer.php:155 settings.php:97
+#: answer.php:155 settings.php:145
 msgid "Save"
 msgstr "Simpan"
 
@@ -124,96 +130,96 @@ msgstr "Respon"
 msgid "You are going to edit data"
 msgstr "Anda akan merubah data"
 
-#: answer.php:181
+#: answer.php:181 lib/BotInterface.php:262
 msgid "Last Update"
 msgstr "Perubahan Terakhir"
 
-#: lib/BotInterface.php:145
+#: lib/BotInterface.php:144
 #, php-format
 msgid "Welcome to %s library"
 msgstr "Selamat Datang di Perpustakaan %s"
 
-#: lib/BotInterface.php:149
+#: lib/BotInterface.php:148
 msgid "I don't understand"
 msgstr "Saya tidak mengerti"
 
-#: lib/BotInterface.php:168
+#: lib/BotInterface.php:167
 msgid "UNREGISTRED member"
 msgstr "Anggota TIDAK TERDAFTAR"
 
-#: lib/BotInterface.php:171
+#: lib/BotInterface.php:170
 msgid "Your Account :"
 msgstr "Akun anda :"
 
-#: lib/BotInterface.php:175
+#: lib/BotInterface.php:174
 msgid "Gender"
 msgstr "Jenis Kelamin"
 
-#: lib/BotInterface.php:175
+#: lib/BotInterface.php:174
 msgid "Male"
 msgstr "Pria"
 
-#: lib/BotInterface.php:175
+#: lib/BotInterface.php:174
 msgid "Female"
 msgstr "Wanita"
 
-#: lib/BotInterface.php:176
+#: lib/BotInterface.php:175
 msgid "Birth Date"
 msgstr "Tanggal Lahir"
 
-#: lib/BotInterface.php:177
+#: lib/BotInterface.php:176
 msgid "Member Type Name"
 msgstr "Tipe Keanggotaan"
 
-#: lib/BotInterface.php:178
+#: lib/BotInterface.php:177
 msgid "Member Address"
 msgstr "Alamat Anggota"
 
-#: lib/BotInterface.php:179
+#: lib/BotInterface.php:178
 msgid "Member Mail Address"
 msgstr "Alamat Surat Anggota"
 
-#: lib/BotInterface.php:180
+#: lib/BotInterface.php:179
 msgid "Member Email"
 msgstr "Surel Anggota"
 
-#: lib/BotInterface.php:181
+#: lib/BotInterface.php:180
 msgid "Postal Code"
 msgstr "Kode Pos"
 
-#: lib/BotInterface.php:182
+#: lib/BotInterface.php:181
 msgid "Member Phone"
 msgstr "Telepon Anggota"
 
-#: lib/BotInterface.php:183
+#: lib/BotInterface.php:182
 msgid "Member Since Date"
 msgstr "Anggota Sejak Tanggal"
 
-#: lib/BotInterface.php:184
+#: lib/BotInterface.php:183
 msgid "Register Date"
 msgstr "Tanggal Daftar"
 
-#: lib/BotInterface.php:185
+#: lib/BotInterface.php:184
 msgid "Expire Date"
 msgstr "Tanggal Kadaluwarsa"
 
-#: lib/BotInterface.php:186
+#: lib/BotInterface.php:185
 msgid "Is Pending"
 msgstr "Ditangguhkan"
 
-#: lib/BotInterface.php:186
+#: lib/BotInterface.php:185
 msgid "No"
 msgstr "Tidak"
 
-#: lib/BotInterface.php:186
+#: lib/BotInterface.php:185
 msgid "Yes"
 msgstr "Ya"
 
-#: lib/BotInterface.php:187
+#: lib/BotInterface.php:186
 msgid "Member Notes"
 msgstr "Catatan Anggota"
 
-#: lib/BotInterface.php:197 lib/BotInterface.php:329 lib/BotInterface.php:355
+#: lib/BotInterface.php:197 lib/BotInterface.php:359 lib/BotInterface.php:385
 msgid "Only for registered account"
 msgstr "Hanya untuk akun terdaftar"
 
@@ -226,7 +232,8 @@ msgid "Item not registered in database"
 msgstr "Eksemplar ini tidak terdaftar dalam pangkalan data"
 
 #: lib/BotInterface.php:219
-msgid "Membership status is suspended or expired, Transaction cannot be continued"
+msgid ""
+"Membership status is suspended or expired, Transaction cannot be continued"
 msgstr ""
 "Status keanggotaan ditangguhkan atau kedaluwarsa, Transaksi tidak dapat "
 "dilanjutkan"
@@ -239,36 +246,75 @@ msgstr "Koleksi saat ini dalam cadangan, Transaksi tidak dapat dilanjutkan"
 msgid "Collection status is overdue, Transaction cannot be continued"
 msgstr "Status koleksi jatuh tempo, Transaksi tidak dapat dilanjutkan"
 
-#: lib/BotInterface.php:236
+#: lib/BotInterface.php:236 lib/BotInterface.php:267
 msgid "Maximum Reborrow Limit, Transaction cannot be continued"
-msgstr "Perpanjangan peminjaman sudah maksimal, Transaksi tidak dapat dilanjutkan"
+msgstr ""
+"Perpanjangan peminjaman sudah maksimal, Transaksi tidak dapat dilanjutkan"
 
-#: lib/BotInterface.php:240
+#: lib/BotInterface.php:240 lib/BotInterface.php:272
+msgid "Transaction already updated, Cannot be continued"
+msgstr "Transaksi sudah diperbaharui, tidak dapat dilanjutkan"
+
+#: lib/BotInterface.php:244
 msgid "Transaction Success, Check on Loans Menu"
 msgstr "Transaksi berhasil, Periksa di sejarah peminjaman"
 
-#: lib/BotInterface.php:244
+#: lib/BotInterface.php:248
 msgid "Transaction Aborted"
 msgstr "Transaksi Dibatalkan"
 
-#: lib/BotInterface.php:249
+#: lib/BotInterface.php:253
 #, php-format
-msgid ""
-"Are you sure to extend <b> %s </b>? \n"
-"Press <code>Y</code> if agree or any key to abort!"
+msgid "Are you sure to extend <b> %s </b>?"
+msgstr "Anda yakin untuk memperpanjang masa pinjam <b> %s </b>?"
+
+#: lib/BotInterface.php:255
+msgid "Loan Status for this Collection"
+msgstr "Status Pemninjaman untuk Koleksi ini"
+
+#: lib/BotInterface.php:257 lib/BotInterface.php:369 register.plugin.php:46
+msgid "Loan Date"
+msgstr "Tanggal Pinjam"
+
+#: lib/BotInterface.php:258
+msgid "Due Date"
+msgstr "Tanggal Keterlambatan"
+
+#: lib/BotInterface.php:259
+msgid "Renewed"
+msgstr "Diperpanjang"
+
+#: lib/BotInterface.php:260
+msgid "Loan Periode"
+msgstr "Periode Peminjaman"
+
+#: lib/BotInterface.php:260
+msgid "Days"
+msgstr "Hari"
+
+#: lib/BotInterface.php:261
+msgid "Reborrow Limit"
+msgstr "Batas Perpanjangan"
+
+#: lib/BotInterface.php:275
+#, fuzzy
+#| msgid ""
+#| "Are you sure to extend <b> %s </b>? \n"
+#| "Press <code>Y</code> if agree or any key to abort!"
+msgid "Press <code>Y</code> if agree or any key to abort"
 msgstr ""
 "Anda yakin memperpanjang masa pinjam <b> %s </b>? \n"
 "Ketik <code>Y</code> jika setuju atau yang lain untuk batal!"
 
-#: lib/BotInterface.php:263
+#: lib/BotInterface.php:293
 msgid "Account already registered"
 msgstr "Akun ini sudah terdaftar"
 
-#: lib/BotInterface.php:271
+#: lib/BotInterface.php:301
 msgid "Insert your username"
 msgstr "Masukkan nama pengguna Anda"
 
-#: lib/BotInterface.php:284 lib/BotInterface.php:291 lib/BotInterface.php:301
+#: lib/BotInterface.php:314 lib/BotInterface.php:321 lib/BotInterface.php:331
 msgid ""
 "FAILED, Check your username and password or maybe already registered with "
 "another telegram account"
@@ -276,108 +322,107 @@ msgstr ""
 "GAGAL, periksa nama pengguna dan password anda, atau mungkin sudah terdaftar "
 "dengan akun telegram lain"
 
-#: lib/BotInterface.php:308
+#: lib/BotInterface.php:338
 msgid "Account activation process is successful"
 msgstr "Aktivasi pengguna berhasil"
 
-#: lib/BotInterface.php:313
+#: lib/BotInterface.php:343
 msgid "Status : "
 msgstr "Status "
 
-#: lib/BotInterface.php:320
+#: lib/BotInterface.php:350
 msgid ""
 "Insert Your Password ! if you dont have one, please contact the library staff"
 msgstr ""
 "Masukkan kata sandi anda ! Jika anda tidak punya, silakan hubungi staf "
 "perpustakaan"
 
-#: lib/BotInterface.php:334
+#: lib/BotInterface.php:364
 msgid "Current Loan"
 msgstr "Eksemplar Terpinjam Saat Ini"
 
-#: lib/BotInterface.php:338 register.plugin.php:45 register.plugin.php:58
+#: lib/BotInterface.php:368 register.plugin.php:45 register.plugin.php:58
 #: register.plugin.php:69
 msgid "Item Code"
 msgstr "Kode Eksemplar"
 
-#: lib/BotInterface.php:339 register.plugin.php:46
-msgid "Loan Date"
-msgstr "Tanggal Pinjam"
-
-#: lib/BotInterface.php:340 register.plugin.php:47 register.plugin.php:59
+#: lib/BotInterface.php:370 register.plugin.php:47 register.plugin.php:59
 #: register.plugin.php:70
 msgid "Return Date"
 msgstr "Tanggal Kembali"
 
-#: lib/BotInterface.php:342
+#: lib/BotInterface.php:372
 msgid "Note"
 msgstr "Catatan"
 
-#: lib/BotInterface.php:342
+#: lib/BotInterface.php:372
 msgid "Collection in overdue status. you are not self extend"
-msgstr "Koleksi dalam status terlambat. Anda tidak memperpanjang secara mandiri"
+msgstr ""
+"Koleksi dalam status terlambat. Anda tidak memperpanjang secara mandiri"
 
-#: lib/BotInterface.php:346 lib/BotInterface.php:368
+#: lib/BotInterface.php:376 lib/BotInterface.php:398
 msgid "No Loan Transaction"
 msgstr "Tidak Ada Transaksi Peminjaman"
 
-#: lib/BotInterface.php:360
+#: lib/BotInterface.php:390
 msgid "Current Fines"
 msgstr "Denda saat ini"
 
-#: lib/BotInterface.php:363
+#: lib/BotInterface.php:393
 msgid "Total"
 msgstr "Total"
 
-#: lib/BotInterface.php:364
+#: lib/BotInterface.php:394
 msgid "Credit"
 msgstr "Kredit"
 
-#: lib/BotInterface.php:365
+#: lib/BotInterface.php:395
 msgid "Debet"
 msgstr "Debit"
 
-#: lib/BotInterface.php:379
+#: lib/BotInterface.php:409
 msgid "You use the <b>HELP</b> menu"
 msgstr "Anda menggunakan menu <b>BANTUAN</b>"
 
-#: lib/BotInterface.php:381
+#: lib/BotInterface.php:411
 msgid "<b>OPAC</b> is the link to the main page of this System"
 msgstr "<b>OPAC</b> adalah tautan ke halaman utama sistem ini"
 
-#: lib/BotInterface.php:382
+#: lib/BotInterface.php:412
 msgid ""
-"<b>Help</b> to provide a brief overview of the menus available in this service"
+"<b>Help</b> to provide a brief overview of the menus available in this "
+"service"
 msgstr ""
-"<b>Bantuan</b> untuk memberikan gambaran singkat tentang menu-menu yang tersedia "
-"di layanan ini"
+"<b>Bantuan</b> untuk memberikan gambaran singkat tentang menu-menu yang "
+"tersedia di layanan ini"
 
-#: lib/BotInterface.php:384
+#: lib/BotInterface.php:414
 msgid ""
-"<b>Activation</b> is used to link your registered account in library membership. "
-"This registration process will record your Telegram account into our system"
+"<b>Activation</b> is used to link your registered account in library "
+"membership. This registration process will record your Telegram account into "
+"our system"
 msgstr ""
-"<b>Aktivasi</b> digunakan untuk menautkan akun terdaftar Anda dalam keanggotaan "
-"perpustakaan. Proses pendaftaran ini akan merekam akun Telegram Anda ke dalam "
-"sistem kami"
+"<b>Aktivasi</b> digunakan untuk menautkan akun terdaftar Anda dalam "
+"keanggotaan perpustakaan. Proses pendaftaran ini akan merekam akun Telegram "
+"Anda ke dalam sistem kami"
 
-#: lib/BotInterface.php:387
+#: lib/BotInterface.php:417
 msgid "<b>Loan</b> to display a list of your current loans"
 msgstr "<b>Pinjaman</b> untuk menampilkan daftar pinjaman Anda saat ini"
 
-#: lib/BotInterface.php:388
+#: lib/BotInterface.php:418
 msgid "<b>Overdue</b> to display a list of your current overdues"
 msgstr "<b>Terlambat</b> untuk menampilkan daftar tunggakan Anda saat ini"
 
-#: lib/BotInterface.php:389
+#: lib/BotInterface.php:419
 msgid "<b>Fines</b> to display a list of your current fines"
 msgstr "<b>Denda</b> untuk menampilkan daftar denda Anda saat ini"
 
-#: lib/BotInterface.php:390
+#: lib/BotInterface.php:420
 msgid "<b>Account</b> to display a detail of your account"
 msgstr "<b>Akun</b> untuk menampilkan detail akun Anda"
 
-#: lib/Keyboard.php:42 lib/Keyboard.php:80 settings.php:62
+#: lib/Keyboard.php:42 lib/Keyboard.php:80 settings.php:108 settings.php:120
 msgid "Help"
 msgstr "Bantuan"
 
@@ -462,114 +507,134 @@ msgstr "Terlambat %d hari dengan denda %s. %s"
 msgid "Overdue"
 msgstr "Keterlambatan"
 
-#: settings.php:20
-msgid "TOKEN and Bot Name can not be empty"
-msgstr "TOKEN atau nama bot tidak boleh kosong"
-
 #: settings.php:37
-msgid "Data FAILED to Updated. Please Contact System Administrator"
-msgstr "Data GAGAL diperbarui. Silahkan Kontak Admin Sistem"
+msgid "You are not authorized to view this section"
+msgstr ""
 
-#: settings.php:48
-msgid "Bot Settings"
-msgstr "Pengaturan Bot"
+#: settings.php:43
+msgid "Need Internet Access"
+msgstr "Membutuhkan akses internet"
 
-#: settings.php:51
-msgid "Modify telegram bot preferences"
-msgstr "Ubah preferensi bot telegram"
-
-#: settings.php:56
-msgid "Bot Telegram Status"
-msgstr "Status Bot Telegram"
-
-#: settings.php:59
-msgid "CONNECT"
-msgstr "SAMBUNGKAN"
-
-#: settings.php:104
-msgid "Token"
-msgstr "Token"
-
-#: settings.php:109 settings.php:114 settings.php:119 settings.php:124
-#: settings.php:129 settings.php:134 settings.php:139
-msgid "Disable"
-msgstr "Tidak mungkin"
-
-#: settings.php:110 settings.php:115 settings.php:120 settings.php:125
-#: settings.php:130 settings.php:135 settings.php:140
-msgid "Enable"
-msgstr "Dimungkinkan"
-
-#: settings.php:111
-msgid "Self Activation"
-msgstr "Aktivasi Mandiri"
-
-#: settings.php:116
-msgid "Self Loan Extension"
-msgstr "Perpanjangan Pinjaman Mandiri"
-
-#: settings.php:121
-msgid "Self Booking"
-msgstr "Pemesanan Mandiri"
-
-#: settings.php:126
-msgid "Circulation Receipt"
-msgstr "Tanda Terima Transaksi"
-
-#: settings.php:131
-msgid "Visiting Notification"
-msgstr "Pemberitahuan Kunjungan"
-
-#: settings.php:136
-msgid "Overdue Warning"
-msgstr "Peringatan Keterlambatan"
-
-#: settings.php:141
-msgid "Overdue Notice"
-msgstr "Pemberitahuan Keterlambatan"
-
-#: settings.php:158
-msgid "Bot Name"
-msgstr "Nama Bot"
-
-#: settings.php:163
+#: settings.php:49
 msgid "webhook not provided for this server"
 msgstr "webhook tidak disediakan untuk server ini"
 
-#: settings.php:168
+#: settings.php:49
+msgid "Connected"
+msgstr "Terhubung"
+
+#: settings.php:59
+msgid "TOKEN and Bot Name can not be empty"
+msgstr "TOKEN atau nama bot tidak boleh kosong"
+
+#: settings.php:74
+msgid "Data FAILED to Updated. Please Contact System Administrator"
+msgstr "Data GAGAL diperbarui. Silahkan Kontak Admin Sistem"
+
+#: settings.php:84
+msgid "Bot Settings"
+msgstr "Pengaturan Bot"
+
+#: settings.php:87
+msgid "Modify telegram bot preferences"
+msgstr "Ubah preferensi bot telegram"
+
+#: settings.php:92
+msgid "Bot Telegram Status"
+msgstr "Status Bot Telegram"
+
+#: settings.php:95
+msgid "Bot Name"
+msgstr "Nama Bot"
+
+#: settings.php:96
+msgid "Unset"
+msgstr "Belum Di Set"
+
+#: settings.php:98
 msgid "Pending Update Count"
 msgstr "Hitungan Pembaruan Tertunda"
 
-#: settings.php:169
+#: settings.php:99
 msgid "Has Custom Certificate"
 msgstr "Memiliki Sertifikat Kustom"
 
-#: settings.php:170 settings.php:173
+#: settings.php:100
 msgid "Max Connections"
 msgstr "Koneksi Maks"
 
-#: settings.php:183
+#: settings.php:102
+#, fuzzy
+#| msgid "Status : "
+msgid "Status"
+msgstr "Status "
+
+#: settings.php:105
+msgid "CONNECT"
+msgstr "SAMBUNGKAN"
+
+#: settings.php:152
+msgid "Token"
+msgstr "Token"
+
+#: settings.php:157 settings.php:162 settings.php:167 settings.php:172
+#: settings.php:177 settings.php:182 settings.php:187
+msgid "Disable"
+msgstr "Tidak mungkin"
+
+#: settings.php:158 settings.php:163 settings.php:168 settings.php:173
+#: settings.php:178 settings.php:183 settings.php:188
+msgid "Enable"
+msgstr "Dimungkinkan"
+
+#: settings.php:159
+msgid "Self Activation"
+msgstr "Aktivasi Mandiri"
+
+#: settings.php:164
+msgid "Self Loan Extension"
+msgstr "Perpanjangan Pinjaman Mandiri"
+
+#: settings.php:169
+msgid "Self Booking"
+msgstr "Pemesanan Mandiri"
+
+#: settings.php:174
+msgid "Circulation Receipt"
+msgstr "Tanda Terima Transaksi"
+
+#: settings.php:179
+msgid "Visiting Notification"
+msgstr "Pemberitahuan Kunjungan"
+
+#: settings.php:184
+msgid "Overdue Warning"
+msgstr "Peringatan Keterlambatan"
+
+#: settings.php:189
+msgid "Overdue Notice"
+msgstr "Pemberitahuan Keterlambatan"
+
+#: settings.php:201
 msgid "Bot Authorized!"
 msgstr "Bot Resmi!"
 
-#: settings.php:188 settings.php:191
+#: settings.php:206
 msgid "Bad Request: bad webhook: HTTPS url must be provided for webhook!"
-msgstr "Permintaan Buruk: webhook buruk: URL HTTPS harus disediakan untuk webhook!"
+msgstr ""
+"Permintaan Buruk: webhook buruk: URL HTTPS harus disediakan untuk webhook!"
 
-msgid "DELETE"
-msgstr "HAPUS"
+#~ msgid "DELETE"
+#~ msgstr "HAPUS"
 
-msgid "EDIT"
-msgstr "SUNTING"
+#~ msgid "EDIT"
+#~ msgstr "SUNTING"
 
-msgid "Delete Selected Data"
-msgstr "Hapus Data Terpilih"
+#~ msgid "Delete Selected Data"
+#~ msgstr "Hapus Data Terpilih"
 
-msgid "Check All"
-msgstr "Tandai Semua"
+#~ msgid "Check All"
+#~ msgstr "Tandai Semua"
 
-msgid "Uncheck All"
-msgstr "Hilangkan Semua Tanda"
-
-msgid "Message Sent Successfully!"
-msgstr "Pesan Berhasil Terkirim!"
+#~ msgid "Uncheck All"
+#~ msgstr "Hilangkan Semua Tanda"

@@ -250,7 +250,33 @@ class BotInterface{
                         }
                         $data = serialize($_temp_data);
                         @DB::getInstance('mysqli')->query("UPDATE telegram_chat_log SET data = '".$data."' WHERE chat_id='".$this->chat->id."'");
-                    return sprintf(__("Are you sure to extend <b> %s </b>? \nPress <code>Y</code> if agree or any key to abort!"),$item_status['title']);                                                
+                        $str = sprintf(__("Are you sure to extend <b> %s </b>?"),$item_status['title']).PHP_EOL;
+                        $str .= '======================='.PHP_EOL;  
+                        $str .= __('Loan Status for this Collection').' : '.PHP_EOL;
+                        $str .= '======================='.PHP_EOL;  
+                        $str .= __('Loan Date').' : '.$item_status['loan_date'].PHP_EOL;
+                        $str .= __('Due Date').' : '.$item_status['due_date'].PHP_EOL;
+                        $str .= __('Renewed').' : '.$item_status['renewed'].PHP_EOL;
+                        $str .= __('Loan Periode').' : '.$item_status['loan_periode'].' '.__('Days').PHP_EOL;
+                        $str .= __('Reborrow Limit').' : '.$item_status['reborrow_limit'].' '.'X'.PHP_EOL;
+                        $str .= __('Last Update').' : '.$item_status['last_update'].PHP_EOL;
+                        $str .= '======================='.PHP_EOL; 
+                        if($item_status['renewed'] == $item_status['reborrow_limit']){
+                            self::clearState();   
+                            $this->keyboard = Keyboard::keyboardLayout($this->is_member);  
+                            $str .= __('Maximum Reborrow Limit, Transaction cannot be continued').PHP_EOL;
+                        } 
+                        elseif(date_format(date_create($item_status['last_update']), "Y-m-d") == date("Y-m-d")){
+                            self::clearState();   
+                            $this->keyboard = Keyboard::keyboardLayout($this->is_member);  
+                            $str .= __('Transaction already updated, Cannot be continued').PHP_EOL;
+                        }
+                        else{
+                        $str .= __('Press <code>Y</code> if agree or any key to abort').PHP_EOL;
+                        }
+                        $str .= '======================='.PHP_EOL;  
+
+                    return $str;                                                
                 }                 
             }
         }
@@ -278,8 +304,8 @@ class BotInterface{
     		$_data = unserialize($_d['data']);
     		$_temp_data['username'] = $_data['username']??$this->response['text'];
     		$str = '';
-    		if(array_key_exists('username', $_data)){
-    			if(array_key_exists('password',$_data)){
+    		if(is_array($_data) && array_key_exists('username', $_data)){
+    			if(is_array($_data) && array_key_exists('password',$_data)){
     				$this->keyboard = Keyboard::keyboardLayout($this->is_member);
     				//get member data
     				$_member_q = DB::getInstance('mysqli')->query("SELECT m.member_id, m.mpasswd FROM member m WHERE m.member_id='".$_data['username']."'");
@@ -341,7 +367,8 @@ class BotInterface{
                 $str_html .= '┬─ <b>'.$data['title'].'</b>'.PHP_EOL;
                 $str_html .= '├ '.__('Item Code').' : <i>'.$data['item_code'].'</i>'.PHP_EOL;
                 $str_html .= '├ '.__('Loan Date').' : '.$data['loan_date'].PHP_EOL;
-                $str_html .= '└ '.__('Return Date').' : '.$data['due_date'].$data['is_overdue'].PHP_EOL;
+                $str_html .= '├ '.__('Return Date').' : '.$data['due_date'].' '.$data['is_overdue'].PHP_EOL;
+                $str_html .= '└ '.__('Renewed').' : '.$data['renewed'].' x'.PHP_EOL;
                 if($data['is_overdue']){
                 $str_html .= '└ <i>'.__('Note').' : '.__('Collection in overdue status. you are not self extend').'</i>'.PHP_EOL;
                 }

@@ -31,7 +31,7 @@ class CirculationLib{
 
     static public function getLoan($member_id)
     {
-    $_q = DB::getInstance('mysqli')->query('SELECT b.title, i.item_code, l.loan_date, l.due_date FROM loan l 
+    $_q = DB::getInstance('mysqli')->query('SELECT b.title, i.item_code, l.loan_date, l.due_date,l.renewed FROM loan l 
             LEFT JOIN item i ON i.item_code=l.item_code 
             LEFT JOIN biblio b ON i.biblio_id=b.biblio_id 
             WHERE l.is_return = 0 AND i.item_code IS NOT NULL AND l.member_id = \''.$member_id.'\''); 
@@ -61,6 +61,7 @@ class CirculationLib{
     {
         $_loan_data = self::itemLoanStatus($member_id, $item_code);
         $int_loan_id = $_loan_data['loan_id'];
+
         if($_loan_data){
             // check if member not pending or expired
             $_member_q = @DB::getInstance('mysqli')->query("SELECT * FROM member WHERE (is_pending = 1 OR expire_date < curdate()) AND member_id = '".$member_id."'");
@@ -152,7 +153,24 @@ class CirculationLib{
             WHERE l.member_id= '%s' AND l.item_code='%s' AND is_return=0",$member_id, $item_code));
         if($_l_q->num_rows){
             $_loan_data = $_l_q->fetch_assoc();
-            return $_loan_data;
+            //check loan periode
+            $_loan_rules_q = @DB::getInstance('mysqli')->query("SELECT lr.loan_periode, lr.reborrow_limit FROM mst_loan_rules AS lr LEFT JOIN
+                loan AS l ON lr.loan_rules_id=l.loan_rules_id WHERE loan_id=".$loan_data['loan_id']);
+            if ($_loan_rules_q->num_rows > 0) {
+                $_loan_rules_d = $_loan_rules_q->fetch_row();
+                $rules['loan_periode'] = $_loan_rules_d[0];
+                $rules['reborrow_limit'] = $_loan_rules_d[1];
+            }else{
+                $_member_rules_q = @DB::getInstance('mysqli')->query("SELECT mmt.loan_periode, mmt.reborrow_limit FROM mst_member_type AS mmt LEFT JOIN
+                member AS m ON m.member_type_id=mmt.member_type_id WHERE m.member_id='".$member_id."'");
+                if($_member_rules_q->num_rows){
+                    $_loan_rules_d   = $_member_rules_q->fetch_row();
+                    $rules['loan_periode'] = $_loan_rules_d[0];
+                    $rules['reborrow_limit'] = $_loan_rules_d[1];             
+                }
+            }     
+                   
+            return array_merge($_loan_data,$rules);
         }
         return false;
     }

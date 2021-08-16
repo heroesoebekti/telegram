@@ -46,8 +46,12 @@ $bot = new BotTelegram();
 if($bot->connected()){
   $_bot_username  = $bot->getMe();
   $_bot_info      = $bot->getWebhookInfo();
-  $webhook_status = $_bot_info->url != $url?__('webhook not provided for this server'):__('Connected');
-  $btn_connect    = $_bot_info->url != $url?true:false;
+  if($_bot_info->ok && $_bot_username->ok){
+    $webhook_status = $_bot_info->result->url != $url?__('webhook not provided for this server'):__('Connected');
+    $btn_connect    = $_bot_info->result->url != $url?true:false;
+  }else{
+    $webhook_status = $_bot_info->description.'...  '.__('Check you bot TOKEN!');
+  }
 }
 
 if(isset($_POST['updateData'])){
@@ -91,17 +95,17 @@ if(isset($_POST['updateData'])){
       <div class="card-body">
         <h6 class="card-title"><?= __('Bot Telegram Status')?></h6>
           <div class="row status">
-            <?php if ($bot->connected()) : ?>
+            <?php if ($bot->connected() && $_bot_info->ok ) : ?>
             <div class="col-4"><?= __('Bot Name')?></div><div class="col-8">
-              <a class="btn btn-sm btn-warning" href="https://t.me/'<?= $_bot_username->username??''?>'" target="_BLANK"><?= $_bot_username->first_name??__('Unset')?></a>
+              <a class="btn btn-sm btn-warning" href="https://t.me/'<?= $_bot_username->result->username??''?>'" target="_BLANK"><?= $_bot_username->result->first_name??__('Unset')?></a>
             </div>
-            <div class="col-4"><?= __('Pending Update Count')?></div><div class="col-8"><?= $_bot_info->pending_update_count??''?></div>
-            <div class="col-4"><?= __('Has Custom Certificate')?></div><div class="col-8"><?= $_bot_info->has_custom_certificate??''?></div>
-            <div class="col-4"><?= __('Max Connections')?></div><div class="col-8"><?= $_bot_info->max_connections??''?></div>
+            <div class="col-4"><?= __('Pending Update Count')?></div><div class="col-8"><?= $_bot_info->result->pending_update_count??''?></div>
+            <div class="col-4"><?= __('Has Custom Certificate')?></div><div class="col-8"><?= $_bot_info->result->has_custom_certificate??''?></div>
+            <div class="col-4"><?= __('Max Connections')?></div><div class="col-8"><?= $_bot_info->result->max_connections??''?></div>
             <?php endif; ?> 
             <div class="col-4"><?= __('Status')?></div><div class="col-8"><?= $webhook_status?></div>             
           </div>
-          <?php if ($btn_connect) : ?>
+          <?php if (isset($btn_connect) && $btn_connect==true) : ?>
           <button class="btn btn-outline-light mt-2 telegram-connect mr-3" style="border-radius: 20px;"><i class="fa fa-plug" aria-hidden="true"></i>&nbsp;<?= __('CONNECT')?></button> 
           <?php endif; ?> 
           <!-- Button trigger modal -->

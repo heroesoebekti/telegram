@@ -112,21 +112,25 @@ class BotTelegram {
 
 
     public function getMe(){
-       $data = file_get_contents(self::request_url('getMe')); 
-       $data = json_decode($data,false);
-       if(isset($data->ok)){
-            return $data->result;
-       }
-       return false;
+        $url = "https://api.telegram.org/bot".$this->token."/getMe";
+        $ch = curl_init( $url );
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $data= json_decode($result,false);        
+        return $data;
     }
 
     public function getWebhookInfo(){
-       $data = file_get_contents(self::request_url('getWebhookInfo')); 
-       $data = json_decode($data,false);
-        if(isset($data->ok)){
-            return $data->result;
-       }
-       return false;
+        $url = "https://api.telegram.org/bot".$this->token."/getWebhookInfo";
+        $ch = curl_init( $url );
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($result,false); 
+        return $data;
     }
 
     /**

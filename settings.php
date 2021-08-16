@@ -97,7 +97,7 @@ if(isset($_POST['updateData'])){
           <div class="row status">
             <?php if ($bot->connected() && $_bot_info->ok ) : ?>
             <div class="col-4"><?= __('Bot Name')?></div><div class="col-8">
-              <a class="btn btn-sm btn-warning" href="https://t.me/'<?= $_bot_username->result->username??''?>'" target="_BLANK"><?= $_bot_username->result->first_name??__('Unset')?></a>
+              <a class="btn btn-sm btn-warning" href="https://t.me/<?= $_bot_username->result->username??''?>" target="_BLANK"><?= $_bot_username->result->first_name??__('Unset')?></a>
             </div>
             <div class="col-4"><?= __('Pending Update Count')?></div><div class="col-8"><?= $_bot_info->result->pending_update_count??''?></div>
             <div class="col-4"><?= __('Has Custom Certificate')?></div><div class="col-8"><?= $_bot_info->result->has_custom_certificate??''?></div>

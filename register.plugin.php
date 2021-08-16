@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Telegram Bot
- * Plugin URI: https://github.com/heroe.soebekti/telegram
+ * Plugin URI: https://github.com/heroesoebekti/telegram
  * Description: Use for integrated with Telegram Bot 
  * Version: 1.0.0
  * Author: Heru Subekti
- * Author URI: https://github.com/heroe.soebekti
+ * Author URI: https://github.com/heroesoebekti
  */
 
 // get plugin instance

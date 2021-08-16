@@ -31,7 +31,7 @@ class CirculationLib{
 
     static public function getLoan($member_id)
     {
-    $_q = DB::getInstance('mysqli')->query('SELECT b.title, i.item_code, l.loan_date, l.due_date,l.renewed FROM loan l 
+    $_q = DB::getInstance('mysqli')->query('SELECT b.title, i.item_code, l.loan_date, l.due_date,l.renewed,l.last_update FROM loan l 
             LEFT JOIN item i ON i.item_code=l.item_code 
             LEFT JOIN biblio b ON i.biblio_id=b.biblio_id 
             WHERE l.is_return = 0 AND i.item_code IS NOT NULL AND l.member_id = \''.$member_id.'\''); 

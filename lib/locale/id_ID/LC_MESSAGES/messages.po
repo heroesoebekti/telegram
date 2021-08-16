@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bot Telegram\n"
-"POT-Creation-Date: 2021-08-16 12:20+0700\n"
+"POT-Creation-Date: 2021-08-16 12:38+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -219,7 +219,7 @@ msgstr "Ya"
 msgid "Member Notes"
 msgstr "Catatan Anggota"
 
-#: lib/BotInterface.php:197 lib/BotInterface.php:359 lib/BotInterface.php:385
+#: lib/BotInterface.php:197 lib/BotInterface.php:359 lib/BotInterface.php:386
 msgid "Only for registered account"
 msgstr "Hanya untuk akun terdaftar"
 
@@ -253,7 +253,8 @@ msgstr ""
 
 #: lib/BotInterface.php:240 lib/BotInterface.php:272
 msgid "Transaction already updated, Cannot be continued"
-msgstr "Transaksi sudah diperbaharui, tidak dapat dilanjutkan"
+msgstr ""
+" Transaksi yang sama untuk koleksi pada hari ini, tidak dapat dilanjutkan"
 
 #: lib/BotInterface.php:244
 msgid "Transaction Success, Check on Loans Menu"
@@ -280,7 +281,7 @@ msgstr "Tanggal Pinjam"
 msgid "Due Date"
 msgstr "Tanggal Keterlambatan"
 
-#: lib/BotInterface.php:259
+#: lib/BotInterface.php:259 lib/BotInterface.php:371
 msgid "Renewed"
 msgstr "Diperpanjang"
 
@@ -297,14 +298,10 @@ msgid "Reborrow Limit"
 msgstr "Batas Perpanjangan"
 
 #: lib/BotInterface.php:275
-#, fuzzy
-#| msgid ""
-#| "Are you sure to extend <b> %s </b>? \n"
-#| "Press <code>Y</code> if agree or any key to abort!"
 msgid "Press <code>Y</code> if agree or any key to abort"
 msgstr ""
 "Anda yakin memperpanjang masa pinjam <b> %s </b>? \n"
-"Ketik <code>Y</code> jika setuju atau yang lain untuk batal!"
+"Ketik <code>Y</code> jika setuju atau yang lain untuk batal"
 
 #: lib/BotInterface.php:293
 msgid "Account already registered"
@@ -328,7 +325,7 @@ msgstr "Aktivasi pengguna berhasil"
 
 #: lib/BotInterface.php:343
 msgid "Status : "
-msgstr "Status "
+msgstr "Status :"
 
 #: lib/BotInterface.php:350
 msgid ""
@@ -351,44 +348,44 @@ msgstr "Kode Eksemplar"
 msgid "Return Date"
 msgstr "Tanggal Kembali"
 
-#: lib/BotInterface.php:372
+#: lib/BotInterface.php:373
 msgid "Note"
 msgstr "Catatan"
 
-#: lib/BotInterface.php:372
+#: lib/BotInterface.php:373
 msgid "Collection in overdue status. you are not self extend"
 msgstr ""
 "Koleksi dalam status terlambat. Anda tidak memperpanjang secara mandiri"
 
-#: lib/BotInterface.php:376 lib/BotInterface.php:398
+#: lib/BotInterface.php:377 lib/BotInterface.php:399
 msgid "No Loan Transaction"
 msgstr "Tidak Ada Transaksi Peminjaman"
 
-#: lib/BotInterface.php:390
+#: lib/BotInterface.php:391
 msgid "Current Fines"
 msgstr "Denda saat ini"
 
-#: lib/BotInterface.php:393
+#: lib/BotInterface.php:394
 msgid "Total"
 msgstr "Total"
 
-#: lib/BotInterface.php:394
+#: lib/BotInterface.php:395
 msgid "Credit"
 msgstr "Kredit"
 
-#: lib/BotInterface.php:395
+#: lib/BotInterface.php:396
 msgid "Debet"
 msgstr "Debit"
 
-#: lib/BotInterface.php:409
+#: lib/BotInterface.php:410
 msgid "You use the <b>HELP</b> menu"
 msgstr "Anda menggunakan menu <b>BANTUAN</b>"
 
-#: lib/BotInterface.php:411
+#: lib/BotInterface.php:412
 msgid "<b>OPAC</b> is the link to the main page of this System"
 msgstr "<b>OPAC</b> adalah tautan ke halaman utama sistem ini"
 
-#: lib/BotInterface.php:412
+#: lib/BotInterface.php:413
 msgid ""
 "<b>Help</b> to provide a brief overview of the menus available in this "
 "service"
@@ -396,7 +393,7 @@ msgstr ""
 "<b>Bantuan</b> untuk memberikan gambaran singkat tentang menu-menu yang "
 "tersedia di layanan ini"
 
-#: lib/BotInterface.php:414
+#: lib/BotInterface.php:415
 msgid ""
 "<b>Activation</b> is used to link your registered account in library "
 "membership. This registration process will record your Telegram account into "
@@ -406,19 +403,19 @@ msgstr ""
 "keanggotaan perpustakaan. Proses pendaftaran ini akan merekam akun Telegram "
 "Anda ke dalam sistem kami"
 
-#: lib/BotInterface.php:417
+#: lib/BotInterface.php:418
 msgid "<b>Loan</b> to display a list of your current loans"
 msgstr "<b>Pinjaman</b> untuk menampilkan daftar pinjaman Anda saat ini"
 
-#: lib/BotInterface.php:418
+#: lib/BotInterface.php:419
 msgid "<b>Overdue</b> to display a list of your current overdues"
 msgstr "<b>Terlambat</b> untuk menampilkan daftar tunggakan Anda saat ini"
 
-#: lib/BotInterface.php:419
+#: lib/BotInterface.php:420
 msgid "<b>Fines</b> to display a list of your current fines"
 msgstr "<b>Denda</b> untuk menampilkan daftar denda Anda saat ini"
 
-#: lib/BotInterface.php:420
+#: lib/BotInterface.php:421
 msgid "<b>Account</b> to display a detail of your account"
 msgstr "<b>Akun</b> untuk menampilkan detail akun Anda"
 
@@ -564,10 +561,8 @@ msgid "Max Connections"
 msgstr "Koneksi Maks"
 
 #: settings.php:102
-#, fuzzy
-#| msgid "Status : "
 msgid "Status"
-msgstr "Status "
+msgstr "Status"
 
 #: settings.php:105
 msgid "CONNECT"

@@ -368,6 +368,7 @@ class BotInterface{
                 $str_html .= '├ '.__('Item Code').' : <i>'.$data['item_code'].'</i>'.PHP_EOL;
                 $str_html .= '├ '.__('Loan Date').' : '.$data['loan_date'].PHP_EOL;
                 $str_html .= '├ '.__('Return Date').' : '.$data['due_date'].' '.$data['is_overdue'].PHP_EOL;
+                $str_html .= '├ '.__('Last Update').' : '.$data['last_update'].PHP_EOL;
                 $str_html .= '└ '.__('Renewed').' : '.$data['renewed'].' x'.PHP_EOL;
                 if($data['is_overdue']){
                 $str_html .= '└ <i>'.__('Note').' : '.__('Collection in overdue status. you are not self extend').'</i>'.PHP_EOL;

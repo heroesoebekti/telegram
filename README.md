@@ -85,7 +85,7 @@ localhost dengan tunneling _ngrok_ (https://ngrok.com/docs)
 ### Catatan :
 
 - Plugins ini tidak ada jaminan apapun, termasuk kerugian yang diakibatkan.
-- Plugins ini bersifat gratis, dapat disebarluaskan secara bebas atau dimodifikasi sesuai dengan kebutuhan tanpa syarat apapun 
-- atau dukungan pengembangan dengan donasi ke kami :  Bank BRI an. ***_HERU SUBEKTI_***  norek. `6553-01-019162-53-5`
+- Plugins ini bersifat gratis, dapat disebarluaskan secara bebas atau dimodifikasi sesuai dengan kebutuhan tanpa syarat apapun. 
+- atau dukungan pengembangan dengan donasi ke kami :  **Bank BRI** an. ***_HERU SUBEKTI_***  norek. `6553-01-019162-53-5`
 
 

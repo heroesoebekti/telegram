@@ -235,6 +235,10 @@ class BotInterface{
                                         self::clearState();                
                                         return __('Maximum Reborrow Limit, Transaction cannot be continued');
 
+                                    case 'on_update':
+                                        self::clearState();
+                                        return __('Transaction already updated, Cannot be continued');
+
                                     case 'success':     
                                         self::clearState();            
                                         return __('Transaction Success, Check on Loans Menu');

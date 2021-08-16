@@ -93,6 +93,7 @@ class CirculationLib{
         $_loan_data = self::itemLoanStatus($member_id, $item_code);
         $int_loan_id = $_loan_data['loan_id'];
         $renewed     = $_loan_data['renewed'];
+        $last_update = date_format(date_create($_loan_data['last_update']), "Y-m-d");
 
         // check loan rules
         $_loan_rules_q = @DB::getInstance('mysqli')->query("SELECT lr.loan_periode, lr.reborrow_limit FROM mst_loan_rules AS lr LEFT JOIN
@@ -127,9 +128,14 @@ class CirculationLib{
             $_due_date = $_data_member['expire_date'];
         }
 
+        if($last_update == date("Y-m-d")){
+            return 'on_update';
+        }
+
         if($renewed >= $_reborrow_limit){
             return 'max_reborrow';
         }
+
         //update loan data
         $query = @DB::getInstance('mysqli')->query("UPDATE loan SET renewed=renewed+1, due_date='$_due_date', is_return=0, last_update= '".date("Y-m-d H:i:s")."'
             WHERE loan_id=$int_loan_id AND member_id='".$member_id."'");
@@ -139,7 +145,8 @@ class CirculationLib{
 
     static function itemLoanStatus($member_id, $item_code)
     {
-        $_l_q = @DB::getInstance('mysqli')->query(sprintf("SELECT b.title, i.item_code, l.loan_date,l.return_date,l.loan_id, l.due_date,l.renewed FROM loan l 
+        $_l_q = @DB::getInstance('mysqli')->query(sprintf("SELECT b.title, i.item_code, l.loan_date,l.return_date,l.loan_id, l.due_date,l.renewed, l.last_update 
+            FROM loan l 
             left join item i on l.item_code=i.item_code 
             left join biblio b on b.biblio_id=i.biblio_id
             WHERE l.member_id= '%s' AND l.item_code='%s' AND is_return=0",$member_id, $item_code));

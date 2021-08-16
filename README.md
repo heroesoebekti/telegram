@@ -1,9 +1,14 @@
 ### ****PETUNJUK****  
   
 ### Prasyarat :  
-1. SLiMS harus online dan mendukung protokol https atau  
+1. Digunakan untuk SLiMS versi 9.4.2 dan selanjutnya
+2. SLiMS harus online dan mendukung protokol https atau  
 localhost dengan tunneling _ngrok_ (https://ngrok.com/docs)  
-2. Membuat akun bot telegram dengan mendaftar di https://t.me/botfather, kemudian catat untuk token dan usernamenya  
+3. Membuat akun bot telegram dengan mendaftar di https://t.me/botfather, kemudian catat untuk token (nama bot dan username, bersifat unik dan tidak mengikat)
+
+![b1](https://user-images.githubusercontent.com/2249323/129546407-acedd0da-26ce-4e85-9c27-3f0d28b5b28f.PNG)
+![b2](https://user-images.githubusercontent.com/2249323/129546502-7d8127d6-4bf1-4ed7-9f00-28efe26ef4ff.PNG)
+
 
 ### Instalasi :
 1. Salin folder telegram ke ke folder _**plugins**_
@@ -41,6 +46,7 @@ localhost dengan tunneling _ngrok_ (https://ngrok.com/docs)
         - Menampilkan jumlah denda terkini
 
 5. Untuk bot menjadi interaktif, dapat menambahkan beberapa pertanyaan dan jawaban yang sudah disiapkan di menu **_sistem_** submenu _**Bot Auto Response**_. Untuk jawaban acak dipisahkan dengan karakter koma.
-6. Untuk mengelola akun telegram terdaftar, menggunakan menu Keanggotaan sub menu Telegram Account. Pada menu ini, dari laman utama dapat mengirimkan pesan secara langsung ke masing-masing pengguna
+6. Untuk mengelola akun telegram terdaftar, menggunakan menu Keanggotaan sub menu Telegram Account. Pada menu ini, dari laman utama dapat mengirimkan pesan secara langsung ke masing-masing pengguna.
+
 ### Catatan :
 1. Bahasa antarmuka bot telegram menyesuaikan dengan pengaturan bahasa di sistem

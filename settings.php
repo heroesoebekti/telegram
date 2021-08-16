@@ -1,7 +1,32 @@
 <?php 
+/**
+ * @Created by          : Heru Subekti (heroe.soebekti@gmail.com)
+ * @Date                : 08/02/2021 18:50
+ * @File name           : settings.php
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ */
 
+require_once __DIR__ . '/lib/autoload.php';
+
+use Lib\BotTelegram;
 use SLiMS\DB;
 
+require SB.'admin/default/session.inc.php';
+require SB.'admin/default/session_check.inc.php';
 require SIMBIO.'simbio_FILE/simbio_directory.inc.php';
 require SIMBIO.'simbio_GUI/form_maker/simbio_form_table_AJAX.inc.php';
 require SIMBIO.'simbio_GUI/table/simbio_table.inc.php';
@@ -10,6 +35,17 @@ include __DIR__.DS.'lib/Locale.php';
 
 
 $php_self = $_SERVER['PHP_SELF'].'?'.http_build_query($_GET);
+
+$url = ($_SERVER['HTTP_X_FORWARDED_PROTO']??$_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].SWB.'index.php?p=telegram';
+$webhook_status = __('Need Internet Access');
+
+$bot = new BotTelegram();
+if($bot->connected()){
+  $_bot_username  = $bot->getMe();
+  $_bot_info      = $bot->getWebhookInfo();
+  $webhook_status = $_bot_info->url != $url?__('webhook not provided for this server'):__('Connected');
+  $btn_connect    = $_bot_info->url != $url?true:false;
+}
 
 if(isset($_POST['updateData'])){
 
@@ -31,12 +67,9 @@ if(isset($_POST['updateData'])){
       if ($update) {
         utility::jsToastr('Telegram Bot', __('Data Successfully Updated'), 'success');
         echo '<script type="text/javascript">parent.jQuery(\'#mainContent\').simbioAJAX(parent.jQuery.ajaxHistory[0].url);</script>';
-
-        //echo '<script type="text/javascript">parent.jQuery(\'#mainContent\').simbioAJAX(\''.$php_self.'\');</script>';
       }else{
         utility::jsToastr('Telegram Bot', __('Data FAILED to Updated. Please Contact System Administrator') . "\n" . $sql_op->error, 'error');
         echo '<script type="text/javascript">parent.jQuery(\'#mainContent\').simbioAJAX(parent.jQuery.ajaxHistory[0].url);</script>';
-        //echo '<script type="text/javascript">parent.jQuery(\'#mainContent\').simbioAJAX(\''.$php_self.'\');</script>';
       }
     }
 }
@@ -51,16 +84,25 @@ if(isset($_POST['updateData'])){
       <?= __('Modify telegram bot preferences') ?>
     </div>
 
-    <div class="card text-white bg-success mb-3 p-2 m-2 telegram-info">
+    <div class="card text-white bg-dark mb-3 p-2 m-2 telegram-info">
       <div class="card-body">
         <h6 class="card-title"><?= __('Bot Telegram Status')?></h6>
           <div class="row status">
+            <?php if ($bot->connected()) : ?>
+            <div class="col-4"><?= __('Bot Name')?></div><div class="col-8">
+              <a class="btn btn-sm btn-warning" href="https://t.me/'<?= $_bot_username->username??''?>'" target="_BLANK"><?= $_bot_username->first_name??__('Unset')?></a>
+            </div>
+            <div class="col-4"><?= __('Pending Update Count')?></div><div class="col-8"><?= $_bot_info->pending_update_count??''?></div>
+            <div class="col-4"><?= __('Has Custom Certificate')?></div><div class="col-8"><?= $_bot_info->has_custom_certificate??''?></div>
+            <div class="col-4"><?= __('Max Connections')?></div><div class="col-8"><?= $_bot_info->max_connections??''?></div>
+            <?php endif; ?> 
+            <div class="col-4"><?= __('Status')?></div><div class="col-8"><?= $webhook_status?></div>             
           </div>
-          <button class="btn btn-outline-light mt-4 telegram-connect" style="border-radius: 20px;"><i class="fa fa-plug" aria-hidden="true"></i>&nbsp;<?= __('CONNECT')?></button> 
-          
+          <?php if ($btn_connect) : ?>
+          <button class="btn btn-outline-light mt-2 telegram-connect mr-3" style="border-radius: 20px;"><i class="fa fa-plug" aria-hidden="true"></i>&nbsp;<?= __('CONNECT')?></button> 
+          <?php endif; ?> 
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#help" style="border-radius: 20px;"><?= __('Help')?></button>
-
+          <button type="button" class="btn btn-outline-light mt-2" data-toggle="modal" data-target="#help" style="border-radius: 20px;"><?= __('Help')?></button>
       </div>
     </div>
   </div>
@@ -69,20 +111,24 @@ if(isset($_POST['updateData'])){
 
 <!-- Modal -->
 <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?=__('Help')?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body p-4">
+        <?php
+        include LIB.'Parsedown/Parsedown.php';
+        $contents = file_get_contents(__DIR__ .'/README.md');
+        $Parsedown = new Parsedown();
+        echo $Parsedown->text($contents);
+        ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -143,50 +189,18 @@ $form->addSelectList('visit2', __('Overdue Notice'), $options_overdue_notice, $s
 // print out the object
 echo $form->printOut();
 
-$url = ($_SERVER['HTTP_X_FORWARDED_PROTO']??$_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].SWB.'index.php?p=telegram';
-
 ?>
 <script>
 $(function() {
-    $.get("https://api.telegram.org/bot<?=$telegram['token']?>/getWebhookInfo", function(data){
-    var datas =  JSON.parse(JSON.stringify(data));
-       if(datas.ok){
-           
-          $.get("https://api.telegram.org/bot<?=$telegram['token']?>/getMe", function(dataMe){
-            var me =  JSON.parse(JSON.stringify(dataMe));
-            //console.log(dataMe);
-            $('.status').append('<div class="col-4"><?= __('Bot Name')?></div><div class="col-8"><a class="btn btn-sm btn-warning" href="https://t.me/'+me.result.username+'" target="_BLANK">'+me.result.first_name+'</a></div>');
-          });
-          
-            $('.telegram-info').removeClass('bg-success').addClass('bg-dark');
-            if(datas.result.url != '<?=$url?>'){
-              $('.status').append('<div class="col-4">Status</div><div class="col-8"><?= __('webhook not provided for this server')?></div>');
-            }else{
-              $('.status').append('<div class="col-4">Status</div><div class="col-8">OK</div>');    
-              $('.telegram-connect').hide();         
-            }  
-            $('.status').append('<div class="col-4"><?= __('Pending Update Count')?></div><div class="col-8">'+datas.result.pending_update_count+'</div>');
-            $('.status').append('<div class="col-4"><?= __('Has Custom Certificate')?></div><div class="col-8">'+datas.result.has_custom_certificate+'</div>');
-            $('.status').append('<div class="col-4"><?= __('Max Connections')?></div><div class="col-8">'+datas.result.max_connections+'</div>');         
-        }
-        else{
-            $('.status').append('<div class="col-4"><?= __('Max Connections')?></div><div class="col-8">dibutuhkan sambungan internet</div>');         
-        }
-
-    });
-
     $('.telegram-connect').click(function() {
         $.ajax({
         type: "GET",
         url: 'https://api.telegram.org/bot<?=$telegram['token']?>/setWebhook?url=<?=$url?>',
           success: function(data){
               toastr.success('<?= __('Bot Authorized!')?>','Bot Telegram');
-              location.reload();
+              parent.jQuery('#mainContent').simbioAJAX(parent.jQuery.ajaxHistory[0].url);
             },
             statusCode: {
-            404: function() {
-              toastr.warning('<?= __('Bad Request: bad webhook: HTTPS url must be provided for webhook!')?>','Bot Telegram');
-            },
             400: function() {
               toastr.warning('<?= __('Bad Request: bad webhook: HTTPS url must be provided for webhook!')?>', 'Bot Telegram');
            }

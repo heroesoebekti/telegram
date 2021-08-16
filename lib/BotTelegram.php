@@ -111,6 +111,24 @@ class BotTelegram {
     }
 
 
+    public function getMe(){
+       $data = file_get_contents(self::request_url('getMe')); 
+       $data = json_decode($data,false);
+       if(isset($data->ok)){
+            return $data->result;
+       }
+       return false;
+    }
+
+    public function getWebhookInfo(){
+       $data = file_get_contents(self::request_url('getWebhookInfo')); 
+       $data = json_decode($data,false);
+        if(isset($data->ok)){
+            return $data->result;
+       }
+       return false;
+    }
+
     /**
      * @param $chat_id
      * @param $text

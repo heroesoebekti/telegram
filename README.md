@@ -78,14 +78,14 @@ localhost dengan tunneling _ngrok_ (https://ngrok.com/docs)
 
 ![b13](https://user-images.githubusercontent.com/2249323/129553076-c27e1d9e-72cb-42b2-823c-b3bb6328743c.PNG)
 
+8. Bahasa antarmuka bot telegram menyesuaikan dengan pengaturan bahasa di sistem
+
+
+
 ### Catatan :
-1. Bahasa antarmuka bot telegram menyesuaikan dengan pengaturan bahasa di sistem
 
-Plugins ini bersifat gratis, disebarluaskan secara bebas atau dimodifikasi sesuai dengan kebutuhan tanpa syarat apapun
-
-atau dukungan pengembangan dengan donasi ke kami :
-
-Rekening BRI an. _HERU SUBEKTI_
-norek `6553-01-019162-53-5`
+- Plugins ini tidak ada jaminan apapun, termasuk kerugian yang diakibatkan.
+- Plugins ini bersifat gratis, dapat disebarluaskan secara bebas atau dimodifikasi sesuai dengan kebutuhan tanpa syarat apapun 
+- atau dukungan pengembangan dengan donasi ke kami :  Bank BRI an. ***_HERU SUBEKTI_***  norek. `6553-01-019162-53-5`
 
 

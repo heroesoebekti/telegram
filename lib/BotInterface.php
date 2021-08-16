@@ -171,7 +171,7 @@ class BotInterface{
             $str .= '======================='.PHP_EOL;
     	    $str .= __('Member ID').' : '.$_data_member['member_id'].PHP_EOL;
     	    $str .= __('Member Name').' : <b>'.strtoupper($_data_member['member_name']).'</b>'.PHP_EOL;
-            $str .= __('Gender').' : '.($_data_member['member_name']==0?__('Male'):__('Female')).PHP_EOL;
+            $str .= __('Gender').' : '.($_data_member['gender']=='1'?__('Male'):__('Female')).PHP_EOL;
             $str .= __('Birth Date').' : '.$_data_member['birth_date'].PHP_EOL;
             $str .= __('Member Type Name').' : '.$_data_member['member_type_name'].PHP_EOL;
             $str .= __('Member Address').' : '.$_data_member['member_address'].PHP_EOL;

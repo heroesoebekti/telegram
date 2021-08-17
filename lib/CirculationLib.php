@@ -133,7 +133,7 @@ class CirculationLib{
             return 'on_update';
         }
 
-        if($renewed >= $_reborrow_limit){
+        if($renewed > $_reborrow_limit){
             return 'max_reborrow';
         }
 

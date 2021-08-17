@@ -250,7 +250,7 @@ class BotInterface{
                         }
                         $data = serialize($_temp_data);
                         @DB::getInstance('mysqli')->query("UPDATE telegram_chat_log SET data = '".$data."' WHERE chat_id='".$this->chat->id."'");
-                        $str = sprintf(__("Are you sure to extend <b> %s </b>?"),$item_status['title']).PHP_EOL;
+                        $str = __("Are you sure to extend ").'<b><u>'.$item_status['title'].'</u></b> ?'.PHP_EOL;
                         $str .= '======================='.PHP_EOL;  
                         $str .= __('Loan Status for this Collection').' : '.PHP_EOL;
                         $str .= '======================='.PHP_EOL;  
@@ -261,11 +261,13 @@ class BotInterface{
                         $str .= __('Reborrow Limit').' : '.$item_status['reborrow_limit'].' '.'X'.PHP_EOL;
                         $str .= __('Last Update').' : '.$item_status['last_update'].PHP_EOL;
                         $str .= '======================='.PHP_EOL; 
+
                         if($item_status['renewed'] == $item_status['reborrow_limit']){
                             self::clearState();   
                             $this->keyboard = Keyboard::keyboardLayout($this->is_member);  
                             $str .= __('Maximum Reborrow Limit, Transaction cannot be continued').PHP_EOL;
                         } 
+
                         elseif(date_format(date_create($item_status['last_update']), "Y-m-d") == date("Y-m-d")){
                             self::clearState();   
                             $this->keyboard = Keyboard::keyboardLayout($this->is_member);  
